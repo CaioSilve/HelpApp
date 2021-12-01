@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "971372721834",
+    "project_id": "helpapp-fatec",
+    "storage_bucket": "helpapp-fatec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:971372721834:android:a56e06b1abc7b2f2f1c2d3",
+        "android_client_info": {
+          "package_name": "com.example.app07_01"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "971372721834-1edlajhpdofoid685pb704oepmer7s8o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNyE_NNs1DHRHGRfkGZitR9h_BN7SAnqM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "971372721834-1edlajhpdofoid685pb704oepmer7s8o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

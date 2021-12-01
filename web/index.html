@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -20,16 +21,43 @@
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="app07_01">
+  <meta name="apple-mobile-web-app-title" content="HelpApp">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <title>app07_01</title>
+  <title>HelpApp</title>
   <link rel="manifest" href="manifest.json">
 </head>
+
 <body>
-  <!-- This script installs service_worker.js to provide PWA functionality to
-       application. For more information, see:
-       https://developers.google.com/web/fundamentals/primers/service-workers -->
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+
+
+  <script type="module">
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyA99hkf5pmC_yhEedoorlAg5lRMHyEMsNk",
+      authDomain: "helpapp-fatec.firebaseapp.com",
+      projectId: "helpapp-fatec",
+      storageBucket: "helpapp-fatec.appspot.com",
+      messagingSenderId: "971372721834",
+      appId: "1:971372721834:web:5b162278dc3951e4f1c2d3",
+      measurementId: "G-8CYFNXSLC3"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+
+
+
+
   <script>
     var serviceWorkerVersion = null;
     var scriptLoaded = false;
@@ -95,4 +123,5 @@
     }
   </script>
 </body>
+
 </html>

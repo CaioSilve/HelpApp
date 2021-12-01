@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'Usuario.dart';
 
 class TelaHome extends StatefulWidget {
   const TelaHome({Key? key}) : super(key: key);
@@ -12,11 +11,10 @@ class TelaHome extends StatefulWidget {
 class _TelaHomeState extends State<TelaHome> {
   @override
   Widget build(BuildContext context) {
-    var obj = ModalRoute.of(context)!.settings.arguments as Usuario;
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('Bem-vindo, ' + obj.email),
+          title: Text('Bem-vindo'),
           backgroundColor: Colors.redAccent.shade700,
           automaticallyImplyLeading: false,
         ),
