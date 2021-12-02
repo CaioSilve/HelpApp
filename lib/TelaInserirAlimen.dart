@@ -1,14 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class TelaInserir extends StatefulWidget {
-  const TelaInserir({Key? key}) : super(key: key);
+class TelaInserirAlimen extends StatefulWidget {
+  const TelaInserirAlimen({Key? key}) : super(key: key);
 
   @override
-  _TelaInserirState createState() => _TelaInserirState();
+  _TelaInserirAlimenState createState() => _TelaInserirAlimenState();
 }
 
-class _TelaInserirState extends State<TelaInserir> {
+class _TelaInserirAlimenState extends State<TelaInserirAlimen> {
   var txtNome = TextEditingController();
   var txtPreco = TextEditingController();
 

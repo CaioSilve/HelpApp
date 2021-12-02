@@ -56,7 +56,7 @@ class _TelaAlimenState extends State<TelaAlimen> {
             comidas.doc(item.id).delete();
           }),
       onTap: () {
-        Navigator.pushNamed(context, 'inserir', arguments: item.id);
+        Navigator.pushNamed(context, 'inserirAlimen', arguments: item.id);
       },
     );
   }
@@ -147,43 +147,9 @@ class _TelaAlimenState extends State<TelaAlimen> {
         backgroundColor: Colors.redAccent.shade700,
         child: const Icon(Icons.add),
         onPressed: () {
-          Navigator.pushNamed(context, 'inserir');
+          Navigator.pushNamed(context, 'inserirAlimen');
         },
       ),
-
-      /*Container(
-        padding: EdgeInsets.all(10),
-        color: Colors.black45,
-        child: ListView.separated(
-              itemCount: lista.length,
-              separatorBuilder: (context, index) {
-                return Divider(
-                  color: Colors.grey.shade400,
-                  thickness: 0.75,
-                );
-              },
-              itemBuilder: (context, index) {
-                return Card(
-                  elevation: 100,
-                  shadowColor: Colors.grey.shade200,
-                  child: ListTile(
-
-                      //SELECIONAR ITEM DA LISTA
-                      hoverColor: Colors.red.shade100,
-                      onTap: () {
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content: Text('Comida Selecionada: ${lista[index]}'),
-                          duration: Duration(seconds: 2),
-                        ));
-                      },
-                      title: Text(
-                        lista[index],
-                        style: TextStyle(fontSize: 22),
-                      )),
-                );
-              },
-            ),
-      ),*/
     );
   }
 }

@@ -1,11 +1,15 @@
+import 'dart:js';
+
 import 'package:app07_01/TelaAlimen.dart';
 import 'package:app07_01/TelaMarke.dart';
 import 'package:app07_01/TelaServicos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'TelaCriarConta.dart';
 import 'TelaHome.dart';
-import 'TelaInserir.dart';
+import 'TelaInserirAlimen.dart';
+import 'TelaInserirProd.dart';
 import 'TelaLogin.dart';
 import 'TelaSobre.dart';
 
@@ -17,12 +21,17 @@ void main() {
     debugShowCheckedModeBanner: false,
     title: 'Help',
     home: TelaLogin(),
-    initialRoute: 't2',
+    initialRoute: 't1',
     routes: {
       't1': (context) => TelaLogin(),
       't2': (context) => TelaPrincipal(),
       'ts': (context) => TelaSobre(),
-      'inserir': (context) => TelaInserir(),
+      'tAli': (context) => TelaAlimen(),
+      'tSer': (context) => TelaServicos(),
+      'tMar': (context) => TelaMarke(), 
+      'inserirAlimen': (context) => TelaInserirAlimen(),
+      'inserirProd' : (context) => TelaInserirProd(),
+      'criarConta' : (context) => TelaCriarConta()
     },
   ));
 }
@@ -51,6 +60,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
           TelaServicos(),
           TelaMarke(),
         ],
+
 
         //mudança de página -> atualizar o valor telaAtual
         onPageChanged: (index) {

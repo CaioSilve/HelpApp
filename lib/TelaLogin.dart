@@ -23,31 +23,35 @@ class _TelaLoginState extends State<TelaLogin> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(
-                height: 45,
+              height: 45,
             ),
             Center(
-              child: 
-              CircleAvatar(
+              child: CircleAvatar(
                 backgroundColor: Colors.white,
                 radius: 90,
-                child: Image.asset("logo.jpg", scale: 3.2,),),
+                child: Image.asset(
+                  "logo.jpg",
+                  scale: 3.2,
+                ),
+              ),
             ),
             SizedBox(
-                height: 15,
+              height: 15,
             ),
             Expanded(
                 child: Column(
               children: [
                 TextField(
                   controller: txtEmail,
-                  style: TextStyle(decorationColor: Colors.white, color: Colors.white),
+                  style: TextStyle(
+                      decorationColor: Colors.white, color: Colors.white),
                   cursorColor: Colors.white,
                   decoration: InputDecoration(
                     labelText: 'Email',
                     labelStyle: TextStyle(color: Colors.white),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.redAccent.shade400)
-                    ),
+                        borderSide:
+                            BorderSide(color: Colors.redAccent.shade400)),
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -57,14 +61,15 @@ class _TelaLoginState extends State<TelaLogin> {
                 TextField(
                   obscureText: true,
                   controller: txtSenha,
-                  style: TextStyle(decorationColor: Colors.white, color: Colors.white),
+                  style: TextStyle(
+                      decorationColor: Colors.white, color: Colors.white),
                   cursorColor: Colors.white,
                   decoration: InputDecoration(
                     labelText: 'Senha',
                     labelStyle: TextStyle(color: Colors.white),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.redAccent.shade400)
-                    ),
+                        borderSide:
+                            BorderSide(color: Colors.redAccent.shade400)),
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -87,7 +92,16 @@ class _TelaLoginState extends State<TelaLogin> {
                         textStyle: const TextStyle(
                             fontSize: 22, fontWeight: FontWeight.bold)),
                   ),
-                )
+                ),
+                Container(
+                  width: 150,
+                  child: TextButton(
+                    child: const Text('Criar conta'),
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'criarConta');
+                    },
+                  ),
+                ),
               ],
             ))
           ],
@@ -95,23 +109,26 @@ class _TelaLoginState extends State<TelaLogin> {
       ),
     );
   }
-  void login(email, senha){
-    FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: email, password: senha).then((resultado){
-        Navigator.pushReplacementNamed(context, 't2');
-       /* Navigator.pushReplacementNamed(context, 't2', arguments: resultado.user!.uid);*/
-    }).catchError((erro){
+
+  void login(email, senha) {
+    FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: email, password: senha)
+        .then((resultado) {
+      Navigator.pushReplacementNamed(context, 't2');
+      /* Navigator.pushReplacementNamed(context, 't2', arguments: resultado.user!.uid);*/
+    }).catchError((erro) {
       var mensagem = '';
-      if (erro.code == 'user-not-found'){mensagem = 'ERRO: Usuário não encontrado.';
-      }else if (erro.code == 'wrong-password'){mensagem = 'ERRO: Senha incorreta.';
-      }else if (erro.code == 'invalid-email'){mensagem = 'ERRO: Email inválido.';
-      }else{ mensagem = 'ERRO: ${erro.message}';}
+      if (erro.code == 'user-not-found') {
+        mensagem = 'ERRO: Usuário não encontrado.';
+      } else if (erro.code == 'wrong-password') {
+        mensagem = 'ERRO: Senha incorreta.';
+      } else if (erro.code == 'invalid-email') {
+        mensagem = 'ERRO: Email inválido.';
+      } else {
+        mensagem = 'ERRO: ${erro.message}';
+      }
       ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('$mensagem'), duration: Duration(seconds: 2)
-          )
-        );
+          SnackBar(content: Text('$mensagem'), duration: Duration(seconds: 2)));
     });
   }
 }
-
-
