@@ -93,8 +93,10 @@ class _TelaLoginState extends State<TelaLogin> {
                             fontSize: 22, fontWeight: FontWeight.bold)),
                   ),
                 ),
+                SizedBox(height: 10),
                 Container(
-                  width: 150,
+                  width: 100,
+                  color: Colors.white,
                   child: TextButton(
                     child: const Text('Criar conta'),
                     onPressed: () {

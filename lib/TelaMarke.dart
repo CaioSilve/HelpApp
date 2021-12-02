@@ -60,9 +60,9 @@ class _TelaMarkeState extends State<TelaMarke> {
 
     return Container(
       //margin: EdgeInsets.all(5),
-      margin: EdgeInsets.only(left: 10),
+      margin: EdgeInsets.only(left: 5),
       //margin: EdgeInsets.fromLTRB(30, 15, 30, 15),
-      padding: EdgeInsets.only(top: 10),
+      padding: EdgeInsets.only(top: 5),
 
       width: 150,
       height: 70,
@@ -76,10 +76,38 @@ class _TelaMarkeState extends State<TelaMarke> {
           )),
       child: Column(
         children: [
-          Text(
-            nome,
-            style: TextStyle(
-                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 50,
+                child: Text(
+                  nome,
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+              ),
+              SizedBox(width: 5),
+              IconButton(
+                icon: const Icon(Icons.delete),
+                onPressed: () {
+                  setState(() {
+                    produtos.doc(item.id).delete();
+                  });
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.wifi_protected_setup),
+                onPressed: () {
+                  setState(() {
+                    Navigator.pushNamed(context, 'inserirProd',
+                        arguments: item.id);
+                  });
+                },
+              ),
+            ],
           ),
           SizedBox(
             width: 15,
@@ -101,6 +129,7 @@ class _TelaMarkeState extends State<TelaMarke> {
             borderRadius: BorderRadius.all(Radius.circular(5)),
             child: Image.asset(foto),
           ),
+
           //Image.asset(this.foto),
 
           //GRADIENTE
@@ -181,7 +210,7 @@ class _TelaMarkeState extends State<TelaMarke> {
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 20.0),
                 width: 500,
-                height: 200,
+                height: 220,
                 child: StreamBuilder<QuerySnapshot>(
 
                     //fonte de dados (coleção)
@@ -203,7 +232,7 @@ class _TelaMarkeState extends State<TelaMarke> {
                         default:
                           final dados = snapshot.requireData;
                           return ListView.builder(
-                            scrollDirection: Axis.horizontal,
+                              scrollDirection: Axis.horizontal,
                               itemCount: dados.size,
                               itemBuilder: (context, index) {
                                 return produto(dados.docs[index]);
